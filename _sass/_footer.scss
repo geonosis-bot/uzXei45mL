@@ -1,0 +1,51 @@
+@import "./_mixins/responsive";
+
+.footer-area {
+  background: $back_dark;
+  padding: 50px 0 0 0;
+
+  .copy {
+    margin-top: 40px;
+    background: darken($back_dark, 2);
+    p {
+      font-size: 12px;
+    }
+    a {
+      color: $white_color;
+    }
+  }
+
+  .footer-widgets {
+    width: 100%;
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+
+    > div {
+      .foot-heading {
+        font-size: 20px;
+        color: $white_color;
+        margin: 0 0 20px;
+      }
+
+      a {
+        color: $white_color;
+      }
+    }
+
+    @include respond-to(upto-sm) {
+      grid-template-columns: repeat(2, 1fr);
+
+      > div {
+        &:first-child {
+          grid-column: span 2;
+        }
+        &:last-child {
+          margin-top: 40px;
+          grid-column: span 2;
+          justify-self: center;
+        }
+      }
+    }
+  }
+}
